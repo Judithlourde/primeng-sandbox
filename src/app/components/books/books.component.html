@@ -1,0 +1,26 @@
+<!-- <section class="books"> -->
+    <!-- <button (click)="toggleBooks()" pButton type="button">
+        <ng-container *ngIf="isShowing">Hide Books</ng-container>
+        <ng-container *ngIf="!isShowing">Show Books</ng-container>
+    </button>
+    <br> -->
+
+    <ul>
+        <ng-container *ngFor="let book of books">
+            <app-book [book] ="book"></app-book>
+        </ng-container>  
+    </ul>
+    <!-- <div *ngIf="isShowing">
+        <img [src]="imagUrl" [alt]="name">
+        <p>{{ name }}</p>
+    </div> -->
+        
+    <!-- <br>
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" [(ngModel)]="value" pInputText>
+    <input type="text" (input)="handleInput($event)"> -->
+
+
+    <!-- <p>{{ value }}</p>
+    <button (click)="handleClick()" [disabled] = "isDisabled">Click</button> -->
+<!-- </section> -->

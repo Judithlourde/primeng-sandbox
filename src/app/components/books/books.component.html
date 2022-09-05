@@ -4,12 +4,12 @@
         <ng-container *ngIf="!isShowing">Show Books</ng-container>
     </button>
     <br> -->
-
     <ul>
         <ng-container *ngFor="let book of books">
             <app-book (bookEmitter)="addToCart($event)" [book] ="book"></app-book>
         </ng-container>  
     </ul>
+    <!-- <button (click)="toggleBooks()">Toggle</button> -->
     <!-- <div *ngIf="isShowing">
         <img [src]="imagUrl" [alt]="name">
         <p>{{ name }}</p>

@@ -1,5 +1,4 @@
-import { Component, IterableDiffers, OnInit } from '@angular/core';
-import { isTemplateExpression } from 'typescript';
+import { Component, OnInit } from '@angular/core';
 import { Book } from '../../types/Book';
 
 

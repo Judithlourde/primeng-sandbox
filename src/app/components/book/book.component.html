@@ -6,7 +6,7 @@
         <p class="author">Author: {{ book.author }}</p>
         <p>Price: {{ book.amount | currency: 'NOK' }}</p>
 
-        <button  pButton type="button" label="Add to Cart"></button>
+        <button (click)="addToCart()" pButton type="button" label="Add to Cart"></button>
     </div>
 
 </li>

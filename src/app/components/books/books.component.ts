@@ -1,11 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, IterableDiffers, OnInit } from '@angular/core';
+import { isTemplateExpression } from 'typescript';
+import { Book } from '../../types/Book';
 
-export interface Book {
-  name: string,
-  author: string,
-  image: string,
-  amount: number,
-}
 
 @Component({
   selector: 'app-books',
@@ -17,6 +13,8 @@ export class BooksComponent implements OnInit {
   value!: string;
   isShowing: boolean = false;
   isDisabled: boolean = false;
+
+  cart: Book[] = [];
 
   books: Book[] = [
     {
@@ -39,10 +37,14 @@ export class BooksComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor() { 
+    console.log({Constructor: 'Constructor'})
+  }
 
   ngOnInit(): void {
+    console.log({OnInIt: 'From OnIt'})
   }
+ 
 
   handleClick() {
     // console.log('It is working!');
@@ -55,5 +57,13 @@ export class BooksComponent implements OnInit {
 
   toggleBooks() {
     this.isShowing = !this.isShowing;
+  }
+
+  addToCart(event: any) {
+    this.cart.push(event);
+    this.cart.forEach(function(item) {
+      item.name
+      console.log(item.amount);
+    }); 
   }
 }

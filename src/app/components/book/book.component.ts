@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Book } from '../../types/Book';
 
 @Component({
   selector: 'app-book',
@@ -6,11 +7,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-  @Input() book!: any;
+  @Input() book!: Book;
+  @Output() bookEmitter = new EventEmitter<Book>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addToCart() {
+    this.bookEmitter.emit(this.book);
   }
 
 }

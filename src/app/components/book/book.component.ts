@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 import { Book } from '../../types/Book';
 
 @Component({
@@ -8,9 +9,10 @@ import { Book } from '../../types/Book';
 })
 export class BookComponent implements OnInit {
   @Input() book!: Book;
-  @Output() bookEmitter = new EventEmitter<Book>();
+  // @Output() bookEmitter = new EventEmitter<Book>();
   // myInterval: any = null;
-  constructor() { }
+
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     // this.myInterval = setInterval(() => {
@@ -24,7 +26,8 @@ export class BookComponent implements OnInit {
   // }
 
   addToCart() {
-    this.bookEmitter.emit(this.book);
+    this.cartService.add(this.book)
+    // this.bookEmitter.emit(this.book);
   }
 
 }

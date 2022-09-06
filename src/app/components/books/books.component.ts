@@ -20,8 +20,6 @@ export class BooksComponent implements OnInit {
   isShowing: boolean = false;
   isDisabled: boolean = false;
 
-  cart: Book[] = [];
-
   ngOnInit(): void {
     // console.log({OnInIt: 'From OnIt'})
     this.books = this.bookService.getBooks();
@@ -41,11 +39,11 @@ export class BooksComponent implements OnInit {
     this.isShowing = !this.isShowing;
   }
 
-  addToCart(event: any) {
-    this.cart.push(event);
-    this.cart.forEach(function(item) {
-      item.name
-      console.log(item.amount);
-    }); 
-  }
+  // addToCart(event: any) {
+    // this.cart.push(event);
+    // this.cart.forEach(function(item) {
+    //   item.name
+    //   console.log(item.amount);
+    // }); 
+  // }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,17 +10,22 @@ import { InputTextModule } from 'primeng/inputtext';
 import { BooksComponent } from './components/books/books.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BookComponent } from './components/book/book.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
     HeaderComponent,
-    BookComponent
+    BookComponent,
+    CartComponent
   ],
+
+  entryComponents: [CartComponent],
 
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     ButtonModule,
     FormsModule,

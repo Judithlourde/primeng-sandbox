@@ -10,6 +10,7 @@ export class CartService {
   constructor() { }
 
   add(book: Book) {
+    console.log(book)
       this.cart.push(book);
       console.log(this.cart);
       // this.cart.forEach(function(item) {

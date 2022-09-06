@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,8 +24,8 @@ import { CartComponent } from './components/cart/cart.component';
   entryComponents: [CartComponent],
 
   imports: [
-    BrowserModule,
     CommonModule,
+    BrowserModule,
     AppRoutingModule,
     ButtonModule,
     FormsModule,

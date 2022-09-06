@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +11,13 @@ import { BooksComponent } from './components/books/books.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BookComponent } from './components/book/book.component';
 import { CartComponent } from './components/cart/cart.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: '', component: BookComponent },
+  { path: 'cart', component: CartComponent }
+
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,12 +30,13 @@ import { CartComponent } from './components/cart/cart.component';
   entryComponents: [CartComponent],
 
   imports: [
-    CommonModule,
+    // CommonModule,
     BrowserModule,
     AppRoutingModule,
     ButtonModule,
     FormsModule,
-    InputTextModule
+    InputTextModule,
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
   ],
   providers: [],
   bootstrap: [AppComponent]

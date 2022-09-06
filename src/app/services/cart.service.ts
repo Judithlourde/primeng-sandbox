@@ -10,20 +10,14 @@ export class CartService {
   constructor() { }
 
   add(book: Book) {
-    console.log(book)
-      this.cart.push(book);
-      console.log(this.cart);
-      // this.cart.forEach(function(item) {
-      // item.name
-      // console.log(item.amount);
-    // }); 
+    this.cart.push(book);
   }
 
   get() {
-    //   return this.cart.forEach(function(item) {
-    //   item.name
-    //   console.log(item.amount);
-    // }); 
-    return this.cart;
+    return this.cart
+  }
+
+  delete(i: number) {
+    this.cart.splice(i, 1)
   }
 }

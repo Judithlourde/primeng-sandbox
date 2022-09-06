@@ -1,11 +1,15 @@
 <div class="cart">
     <h1>Your Cart</h1>
-    <h3>{{  getCart().length }}</h3>
+   
     <div *ngIf="getCart().length === 0">Your Cart is empty</div>
 
     <ul *ngIf="getCart().length > 0">
-        <li *ngFor="let book og getCart()">
-            <p>{{ book.name }}</p>
+        <li *ngFor="let book of getCart(); let i = index">
+            <p>{{ book.name }} {{ book.amount | currency: 'NOK' }}</p>
+
+            <button (click)="deleteFromCart(i)">
+                <img src="../../../assets/svg/delete-icon.svg" alt="delete-icon">
+            </button>
         </li>
     </ul>
 </div>

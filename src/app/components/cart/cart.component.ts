@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
-import { Book } from '../../types/Book';
 
 @Component({
   selector: 'app-cart',
@@ -11,25 +10,17 @@ import { Book } from '../../types/Book';
 
 export class CartComponent implements OnInit {
 
-  constructor(private cartService: CartService) { 
+  constructor(private cartService: CartService) { }
+
+  ngOnInit(): void {
     this.getCart();
   }
 
-  ngOnInit(): void {
-    // this.getCart();
-  }
-
   getCart() {
-    // console.log(this.cartService.get())
-    // return this.cartService.get();
-    console.log(this.cartService.cart)
-    return this.cartService.cart;
+    return this.cartService.get();   
   }
 
-  
-  // cartItems() {
-  //   this.getCart.forEach.(function(item) {
-  //     console.log(item)
-  //   })
-  // }
+  deleteFromCart(i: number) {
+    this.cartService.delete(i);
+  }
 }

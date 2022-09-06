@@ -1,3 +1,14 @@
 .cart {
     padding: 20px;
 }
+
+.cart li {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cart li button {
+    background: transparent;
+    border-style: none;
+    cursor: pointer;
+}

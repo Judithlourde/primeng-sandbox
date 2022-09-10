@@ -1,0 +1,53 @@
+<section class="login">
+    <form (ngSubmit)="submit()" class="form" #myForm="ngForm">
+        <h1 class="form__heading">Log in</h1>
+
+        <div aria-label="email" class="form__email">
+            <label for="floatingInput">Email address</label>
+            <input 
+                autocomplete="off"  
+                type="email"    
+                aria-required="true"    
+                class="form-control"    
+                id="floatingInput"  
+                placeholder="Email"
+                [(ngModel)]="form.email"
+                name="email"
+                #email="ngModel"
+                required
+            >  
+
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form__validation">Email field must be valid</div>
+             
+        </div>
+
+        <div aria-label="password" class="form__password">
+            <label for="floatingPassword">Password</label>
+            <input  
+                type="password"     
+                aria-required="true"    
+                class="form-control"    
+                id="floatingPassword"   
+                placeholder="Password"
+                [(ngModel)]="form.password"
+                name="password"
+                #password="ngModel"
+                required
+            >
+
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="form__validation">Password field must be valid</div>
+            
+        </div>
+
+        <button     
+            aria-label="login" 
+            class="form__logIn" 
+            type="submit" 
+            [disabled]="myForm.form.invalid"
+        >
+            <ng-container *ngIf="isLoading()">Loading...</ng-container> 
+            <ng-container *ngIf="!isLoading()">Submit</ng-container>
+        </button>
+        
+    </form>   
+</section>

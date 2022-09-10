@@ -1,7 +1,18 @@
 <header role="header" class="header">
     <div class="header__logo">
-        <h1>Paper</h1>
+        <a routerLink="/"><h1>Paper</h1></a>
     </div>
 
-    <a routerLink="cart">Cart</a>
+    <div class="header__cart">
+        <a routerLink="cart"><h1>Cart</h1></a>
+        <ng-container *ngIf="!isAuthenticated()">
+            <a routerLink="login"><h1>Login</h1></a>
+            <a routerLink="register"><h1>Register</h1></a>     
+        </ng-container>
+
+        <ng-container *ngIf="isAuthenticated()">
+            <button (click)="logout()">Logout</button>
+        </ng-container>
+       
+    </div>
 </header>

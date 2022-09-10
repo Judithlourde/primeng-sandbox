@@ -9,10 +9,32 @@
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 0 5px 0;
-    background-color: rgb(195, 87, 9);
+    background-color: #ec6900;
     padding: 0 20px 0 20px;
+} 
+.header__cart {
+    display: flex;
+    flex-direction: row;
 }
 
-.header__logo h1 {
+.header__cart h1 {
+    padding: 20px;
+}
+
+.header__logo h1,
+.header__cart h1 {
     color: whitesmoke;
+}
+
+.header__logo a,
+.header__cart a {
+    text-decoration: none;
+}
+
+
+
+.header__logo a:hover,
+.header__cart a:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
 }

@@ -12,10 +12,16 @@ import { HeaderComponent } from './components/header/header.component';
 import { BookComponent } from './components/book/book.component';
 import { CartComponent } from './components/cart/cart.component';
 import { RouterModule, Routes } from '@angular/router';
+// import { RegisterComponent } from './auth/register/register.component';
+// import { LoginComponent } from './auth/login/login.component';
+import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
-  { path: '', component: BookComponent },
-  { path: 'cart', component: CartComponent }
+  { path: '', component: BooksComponent },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  // { path: 'login', component: LoginComponent },
+  // { path: 'register', component: RegisterComponent }
 
 ]
 @NgModule({
@@ -24,7 +30,9 @@ const appRoutes: Routes = [
     BooksComponent,
     HeaderComponent,
     BookComponent,
-    CartComponent
+    CartComponent,
+    // LoginComponent,
+    // RegisterComponent
   ],
 
   entryComponents: [CartComponent],
@@ -36,6 +44,7 @@ const appRoutes: Routes = [
     ButtonModule,
     FormsModule,
     InputTextModule,
+    AuthModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
   ],
   providers: [],

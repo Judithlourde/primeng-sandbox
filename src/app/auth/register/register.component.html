@@ -1,0 +1,69 @@
+<section class="register">
+    <form (ngSubmit)="submit()" class="form" #myForm="ngForm">
+        <h1 class="register__heading">Register</h1>
+
+        <div aria-label="email" class="form__email">
+            <label for="email">Email address</label>
+            <input  
+                autocomplete="off"  
+                type="email"    
+                aria-required="true"    
+                class="form-control"    
+                id="email"  
+                placeholder="Email Address"
+                [(ngModel)]="form.email"
+                name="email"
+                #email="ngModel"
+                required
+            >  
+
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form__validation">Email field must be valid</div>
+        </div>
+
+        <div aria-label="password" class="form__password">
+            <label for="password">Password</label>
+            <input 
+                type="password"     
+                aria-required="true"    
+                class="form-control"    
+                id="password"   
+                placeholder="Password"
+                [(ngModel)]="form.password"
+                name="password"
+                #password="ngModel"
+                required
+            >
+
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="form__validation">Password field must be valid</div>
+        </div>
+
+        <div aria-label="confirm_password" class="form__password">
+            <label for="confirm_password">Confirm Password</label>
+            <input  
+                type="confirm_password"     
+                aria-required="true"    
+                class="form-control"    
+                id="confirm_password"   
+                placeholder="Confirm Password"
+                [(ngModel)]="form.confirm_password"
+                name="confirm_password"
+                #confirm_password="ngModel"
+                required
+            >
+
+            <div *ngIf="confirm_password.invalid && (confirm_password.dirty || confirm_password.touched)" class="form__validation">Confirm Password field must be valid</div>
+        </div>
+
+        <button 
+            aria-label="register" 
+            class="form__register" 
+            type="submit" 
+            [disabled]="myForm.form.invalid"
+        >
+            <ng-container *ngIf="isLoading()">Loading...</ng-container> 
+            <ng-container *ngIf="!isLoading()">Submit</ng-container>
+        </button>
+        
+    </form>   
+</section>
+
